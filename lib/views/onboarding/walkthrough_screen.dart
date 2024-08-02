@@ -1,4 +1,6 @@
 import '../../models/slide_model.dart';
+import '../../resources/app_routes.dart';
+import '../../resources/app_spacing.dart';
 import '../components/ui/button_component.dart';
 import '/resources/app_colours.dart';
 import '/resources/app_strings.dart';
@@ -44,15 +46,15 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(child: pages()),
-          // const SizedBox(height: 24),
+          // AppSpacing.vertical(),
           Padding(
             padding: const EdgeInsets.all(24.0),
             child: Column(
               children: [
                 indicatorWidget(),
-                const SizedBox(height: 24),
+                AppSpacing.vertical(),
                 buttons(),
-                const SizedBox(height: 24),
+                AppSpacing.vertical(),
               ],
             ),
           ),
@@ -89,7 +91,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
               ),
             ),
           ),
-          if (i < slides.length - 1) const SizedBox(width: 8),
+          if (i < slides.length - 1) AppSpacing.horizontal(size: 8),
         ],
       ],
     );
@@ -100,11 +102,15 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
       children: [
         ButtonComponent(
           label: AppStrings.signUp,
+          onPressed: () {
+            Navigator.of(context).pushNamed(AppRoutes.signUpScreen);
+          },
         ),
-        const SizedBox(height: 16),
+        AppSpacing.vertical(size: 16),
         ButtonComponent(
           type: ButtonType.secondary,
           label: AppStrings.login,
+          onPressed: () {},
         ),
       ],
     );
@@ -122,24 +128,26 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
           shrinkWrap: true,
           padding: const EdgeInsets.all(24),
           children: [
-            const SizedBox(height: 48),
+            AppSpacing.vertical(size: 48),
             Center(
               child: Image.asset(
                 slides[index].image,
                 width: MediaQuery.of(context).size.width / 1.5,
               ),
             ),
-            const SizedBox(height: 24),
+            AppSpacing.vertical(),
             Text(
               slides[index].title,
               style: AppStyles.title1(),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+            AppSpacing.vertical(size: 16),
             Text(
               slides[index].description,
               style: AppStyles.regular1(
-                  color: AppColours.light20, weight: FontWeight.w500),
+                color: AppColours.light20,
+                weight: FontWeight.w500,
+              ),
               textAlign: TextAlign.center,
             ),
           ],

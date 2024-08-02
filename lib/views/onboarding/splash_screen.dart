@@ -1,5 +1,4 @@
-import 'package:expanse_tracker/resources/app_styles.dart';
-
+import '/resources/app_styles.dart';
 import '../../resources/app_routes.dart';
 import '/resources/app_colours.dart';
 import '/resources/app_strings.dart';

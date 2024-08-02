@@ -1,3 +1,4 @@
+import '/views/auth/signup_screen.dart';
 import '/resources/app_routes.dart';
 import '/views/onboarding/walkthrough_screen.dart';
 import '/resources/app_colours.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.splashScreen: (context) => const SplashScreen(),
         AppRoutes.walkthroughScreen: (context) => const WalkthroughScreen(),
+        AppRoutes.signUpScreen: (context) => const SignupScreen(),
       },
     );
   }
